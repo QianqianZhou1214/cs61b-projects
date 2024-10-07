@@ -22,6 +22,27 @@ public class TimeAList {
     }
 
     public static void timeAListConstruction() {
-        // TODO: YOUR CODE HERE
+        AList<Integer> L = new AList<>();
+        AList<Integer> Ns = new AList<>();
+        AList<Double> times = new AList<>();
+        AList<Integer> opCount = new AList<>();
+        int temp = 1000;
+        while(temp <= 128000){
+            Ns.addLast(temp);
+            opCount.addLast(temp);
+            temp *= 2;
+        }
+        for(int i = 0; i < Ns.size(); i++){
+            int N = Ns.get(i); // N is the number of added elements in AList everytime
+            int j = 0; // use j to simulate the addLast process(N elements, N times of adding)
+            Stopwatch sw = new Stopwatch();// start to count the time
+            while(j < N){
+                L.addLast(j);
+                j += 1;
+            }
+            times.addLast(sw.elapsedTime());
+        }
+        printTimingTable(Ns, times, opCount);
+
     }
 }
