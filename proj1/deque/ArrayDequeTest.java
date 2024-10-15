@@ -29,7 +29,7 @@ public class ArrayDequeTest {
         assertEquals(3, ad1.size());
 
         System.out.println("Printing out deque:");
-        ad1.prinDeque();
+        ad1.printDeque();
     }
 
     @Test
@@ -107,11 +107,11 @@ public class ArrayDequeTest {
             ad1.addFirst(i);
         }
 
-        for(int i = 0; i < 500000; i++) {
+        for(int i = 999999; i > 500000; i--) {
             assertEquals("Should have the same value", i, (int) ad1.removeFirst(),0.0);
         }
 
-        for(int i = 999999; i > 500000; i--) {
+        for(int i = 0; i < 500000; i++) {
             assertEquals("Should have the same value", i, (int) ad1.removeLast(), 0.0);
         }
     }
